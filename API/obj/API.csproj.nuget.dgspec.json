@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\photography-website-alexandra\\API\\API.csproj": {}
+    "d:\\photography-website-alexandra\\API\\API.csproj": {}
   },
   "projects": {
-    "D:\\photography-website-alexandra\\API\\API.csproj": {
+    "d:\\photography-website-alexandra\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\photography-website-alexandra\\API\\API.csproj",
+        "projectUniqueName": "d:\\photography-website-alexandra\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "D:\\photography-website-alexandra\\API\\API.csproj",
+        "projectPath": "d:\\photography-website-alexandra\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Dima\\.nuget\\packages\\",
-        "outputPath": "D:\\photography-website-alexandra\\API\\obj\\",
+        "outputPath": "d:\\photography-website-alexandra\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -40,6 +40,16 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[3.1.12, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
