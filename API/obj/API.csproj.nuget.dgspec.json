@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "d:\\photography-website-alexandra\\API\\API.csproj": {}
+    "D:\\photography-website-alexandra\\API\\API.csproj": {}
   },
   "projects": {
-    "d:\\photography-website-alexandra\\API\\API.csproj": {
+    "D:\\photography-website-alexandra\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "d:\\photography-website-alexandra\\API\\API.csproj",
+        "projectUniqueName": "D:\\photography-website-alexandra\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "d:\\photography-website-alexandra\\API\\API.csproj",
+        "projectPath": "D:\\photography-website-alexandra\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Dima\\.nuget\\packages\\",
-        "outputPath": "d:\\photography-website-alexandra\\API\\obj\\",
+        "outputPath": "D:\\photography-website-alexandra\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -42,6 +42,10 @@
         "netcoreapp3.1": {
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[3.1.12, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
               "target": "Package",
               "version": "[3.1.12, )"
             },
