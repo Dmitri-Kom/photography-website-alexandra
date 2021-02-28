@@ -1,4 +1,10 @@
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using API.Data;
+using API.Entities;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
@@ -6,16 +12,23 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class PhotographsController : ControllerBase
     {
-        [HttpGet]
-        public string GetPhotographs()
+        private readonly PhotographsShopContext _photographsShopContext;
+        public PhotographsController(PhotographsShopContext photographsShopContext)
         {
-            return "GetPhotographs()";
+            _photographsShopContext = photographsShopContext;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult<List<Photograph>>> GetPhotographs()
+        {
+            var photographs = await _photographsShopContext.Photographs.ToListAsync();
+            return Ok(photographs);
         }
 
         [HttpGet("{id}")]
-        public string GetPhotograph(int id)
+        public async Task<ActionResult<Photograph>> GetPhotograph(int id)
         {
-            return "GetPhotograph()";
+            return await _photographsShopContext.Photographs.FindAsync(id);
         }
 
     }

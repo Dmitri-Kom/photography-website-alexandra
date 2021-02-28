@@ -20,6 +20,7 @@ namespace API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+            //Default lifetime is scoped, lifetime of the request;
             services.AddDbContext<PhotographsShopContext>(dbContextOptionsBuilder => dbContextOptionsBuilder.UseSqlite(_configuration.GetConnectionString("DefaultConnection")));
         }
 
