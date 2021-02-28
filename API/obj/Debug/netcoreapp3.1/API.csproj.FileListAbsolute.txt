@@ -59,3 +59,7 @@ D:\photography-website-alexandra\API\bin\Debug\netcoreapp3.1\runtimes\win-x64\na
 D:\photography-website-alexandra\API\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\e_sqlite3.dll
 D:\photography-website-alexandra\API\obj\Debug\netcoreapp3.1\API.csproj.CopyComplete
 D:\photography-website-alexandra\API\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+D:\photography-website-alexandra\API\bin\Debug\netcoreapp3.1\Core.dll
+D:\photography-website-alexandra\API\bin\Debug\netcoreapp3.1\Infrastructure.dll
+D:\photography-website-alexandra\API\bin\Debug\netcoreapp3.1\Infrastructure.pdb
+D:\photography-website-alexandra\API\bin\Debug\netcoreapp3.1\Core.pdb
