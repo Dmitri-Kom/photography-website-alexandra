@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Core.Entities;
+using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -12,23 +13,23 @@ namespace API.Controllers
     [Route("api/[controller]")]
     public class PhotographsController : ControllerBase
     {
-        private readonly PhotographsShopContext _photographsShopContext;
-        public PhotographsController(PhotographsShopContext photographsShopContext)
+        private readonly IPhotographRepository _photographRepository;
+        public PhotographsController(IPhotographRepository photographRepository)
         {
-            _photographsShopContext = photographsShopContext;
+            _photographRepository = photographRepository;
         }
 
         [HttpGet]
         public async Task<ActionResult<List<Photograph>>> GetPhotographs()
         {
-            var photographs = await _photographsShopContext.Photographs.ToListAsync();
+            var photographs = await _photographRepository.GetPhotographsAsync();
             return Ok(photographs);
         }
 
         [HttpGet("{id}")]
         public async Task<ActionResult<Photograph>> GetPhotograph(int id)
         {
-            return await _photographsShopContext.Photographs.FindAsync(id);
+            return await _photographRepository.GetPhotographByIdAsync(id);
         }
 
     }
