@@ -11,6 +11,7 @@ namespace Infrastructure.Data
         {
         }
 
-        public DbSet<Photograph> Photographs { get => photographs; set => photographs = value; }
+        public DbSet<Photograph> Photographs { get; set; }
+        public DbSet<PhotographType> PhotographTypes { get; set; }
     }
 }
