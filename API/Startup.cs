@@ -26,6 +26,7 @@ namespace API
             // And when the request is finished, then it disposes of both the controller 
             // and the repository.
             services.AddScoped<IPhotographRepository, PhotographRepository>();
+            services.AddScoped(typeof(IGenericRepository<>), (typeof(GenericRepository<>)));
             services.AddControllers();
             //Default lifetime is scoped, lifetime of the request;
             services.AddDbContext<PhotographsShopContext>(dbContextOptionsBuilder => dbContextOptionsBuilder.UseSqlite(_configuration.GetConnectionString("DefaultConnection")));
