@@ -16,7 +16,7 @@ namespace Infrastructure.Data
 
         public async Task<Photograph> GetPhotographByIdAsync(int id)
         {
-            return await _photographsShopContext.Photographs.FindAsync(id);
+            return await _photographsShopContext.Photographs.Include(p => p.PhotographLocation).FirstOrDefaultAsync(p => p.Id == id);
         }
 
         public async Task<IReadOnlyList<PhotographLocation>> GetPhotographLocationsAsync()
@@ -26,7 +26,7 @@ namespace Infrastructure.Data
 
         public async Task<IReadOnlyList<Photograph>> GetPhotographsAsync()
         {
-            return await _photographsShopContext.Photographs.ToListAsync();
+            return await _photographsShopContext.Photographs.Include(p => p.PhotographLocation).ToListAsync();
         }
     }
 }
