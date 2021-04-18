@@ -13,8 +13,8 @@ namespace Infrastructure.Data.Config
             builder.Property(p => p.Description).IsRequired();
             builder.Property(p => p.Price).HasColumnType("decimal(18,2)");
             builder.Property(p => p.Url).IsRequired();
-            builder.HasOne(t => t.PhotographType).WithMany()
-                    .HasForeignKey(p => p.PhotographTypeId);
+            builder.HasOne(t => t.PhotographLocation).WithMany()
+                    .HasForeignKey(p => p.PhotographLocationId);
         }
     }
 }

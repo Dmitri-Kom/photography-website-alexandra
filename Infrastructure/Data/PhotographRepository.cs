@@ -19,6 +19,11 @@ namespace Infrastructure.Data
             return await _photographsShopContext.Photographs.FindAsync(id);
         }
 
+        public async Task<IReadOnlyList<PhotographLocation>> GetPhotographLocationsAsync()
+        {
+            return await _photographsShopContext.PhotographLocations.ToListAsync();
+        }
+
         public async Task<IReadOnlyList<Photograph>> GetPhotographsAsync()
         {
             return await _photographsShopContext.Photographs.ToListAsync();

@@ -1,6 +1,6 @@
 namespace Core.Entities
 {
-    public class PhotographType : BaseEntity
+    public class PhotographLocation : BaseEntity
     {
         public string Name { get; set; }
     }

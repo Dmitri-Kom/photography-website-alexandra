@@ -30,7 +30,7 @@ namespace Infrastructure.Data.Migrations
                         .HasColumnType("TEXT")
                         .HasMaxLength(100);
 
-                    b.Property<int>("PhotographTypeId")
+                    b.Property<int>("PhotographLocationId")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Price")
@@ -42,12 +42,12 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PhotographTypeId");
+                    b.HasIndex("PhotographLocationId");
 
                     b.ToTable("Photographs");
                 });
 
-            modelBuilder.Entity("Core.Entities.PhotographType", b =>
+            modelBuilder.Entity("Core.Entities.PhotographLocation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -58,14 +58,14 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PhotographTypes");
+                    b.ToTable("PhotographLocations");
                 });
 
             modelBuilder.Entity("Core.Entities.Photograph", b =>
                 {
-                    b.HasOne("Core.Entities.PhotographType", "PhotographType")
+                    b.HasOne("Core.Entities.PhotographLocation", "PhotographLocation")
                         .WithMany()
-                        .HasForeignKey("PhotographTypeId")
+                        .HasForeignKey("PhotographLocationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

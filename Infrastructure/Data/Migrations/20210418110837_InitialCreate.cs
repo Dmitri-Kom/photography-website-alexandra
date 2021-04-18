@@ -7,7 +7,7 @@ namespace Infrastructure.Data.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "PhotographTypes",
+                name: "PhotographLocations",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -16,7 +16,7 @@ namespace Infrastructure.Data.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PhotographTypes", x => x.Id);
+                    table.PrimaryKey("PK_PhotographLocations", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -29,23 +29,23 @@ namespace Infrastructure.Data.Migrations
                     Description = table.Column<string>(nullable: false),
                     Price = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     Url = table.Column<string>(nullable: false),
-                    PhotographTypeId = table.Column<int>(nullable: false)
+                    PhotographLocationId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Photographs", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Photographs_PhotographTypes_PhotographTypeId",
-                        column: x => x.PhotographTypeId,
-                        principalTable: "PhotographTypes",
+                        name: "FK_Photographs_PhotographLocations_PhotographLocationId",
+                        column: x => x.PhotographLocationId,
+                        principalTable: "PhotographLocations",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Photographs_PhotographTypeId",
+                name: "IX_Photographs_PhotographLocationId",
                 table: "Photographs",
-                column: "PhotographTypeId");
+                column: "PhotographLocationId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -54,7 +54,7 @@ namespace Infrastructure.Data.Migrations
                 name: "Photographs");
 
             migrationBuilder.DropTable(
-                name: "PhotographTypes");
+                name: "PhotographLocations");
         }
     }
 }

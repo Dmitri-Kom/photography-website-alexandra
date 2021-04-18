@@ -13,7 +13,7 @@ namespace Infrastructure.Data
         }
 
         public DbSet<Photograph> Photographs { get; set; }
-        public DbSet<PhotographType> PhotographTypes { get; set; }
+        public DbSet<PhotographLocation> PhotographLocations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

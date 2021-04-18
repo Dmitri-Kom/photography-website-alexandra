@@ -8,5 +8,6 @@ namespace Core.Interfaces
     {
         Task<Photograph> GetPhotographByIdAsync(int id);
         Task<IReadOnlyList<Photograph>> GetPhotographsAsync();
+        Task<IReadOnlyList<PhotographLocation>> GetPhotographLocationsAsync();
     }
 }

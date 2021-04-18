@@ -32,5 +32,11 @@ namespace API.Controllers
             return await _photographRepository.GetPhotographByIdAsync(id);
         }
 
+        [HttpGet("locations")]
+        public async Task<ActionResult<IReadOnlyList<PhotographLocation>>> GetPhotographLocations()
+        {
+            return Ok(await _photographRepository.GetPhotographLocationsAsync());
+        }
+
     }
 }

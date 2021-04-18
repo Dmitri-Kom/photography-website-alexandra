@@ -7,7 +7,7 @@ namespace Core.Entities
         public decimal Price { get; set; }
         public string Url { get; set; }
 
-        public PhotographType PhotographType { get; set; }
-        public int PhotographTypeId { get; set; }
+        public PhotographLocation PhotographLocation { get; set; }
+        public int PhotographLocationId { get; set; }
     }
 }

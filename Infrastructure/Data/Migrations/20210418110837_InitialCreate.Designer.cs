@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Infrastructure.Data.Migrations
 {
     [DbContext(typeof(PhotographsShopContext))]
-    [Migration("20210414132615_InitialCreate")]
+    [Migration("20210418110837_InitialCreate")]
     partial class InitialCreate
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,7 +32,7 @@ namespace Infrastructure.Data.Migrations
                         .HasColumnType("TEXT")
                         .HasMaxLength(100);
 
-                    b.Property<int>("PhotographTypeId")
+                    b.Property<int>("PhotographLocationId")
                         .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Price")
@@ -44,12 +44,12 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PhotographTypeId");
+                    b.HasIndex("PhotographLocationId");
 
                     b.ToTable("Photographs");
                 });
 
-            modelBuilder.Entity("Core.Entities.PhotographType", b =>
+            modelBuilder.Entity("Core.Entities.PhotographLocation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -60,14 +60,14 @@ namespace Infrastructure.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("PhotographTypes");
+                    b.ToTable("PhotographLocations");
                 });
 
             modelBuilder.Entity("Core.Entities.Photograph", b =>
                 {
-                    b.HasOne("Core.Entities.PhotographType", "PhotographType")
+                    b.HasOne("Core.Entities.PhotographLocation", "PhotographLocation")
                         .WithMany()
-                        .HasForeignKey("PhotographTypeId")
+                        .HasForeignKey("PhotographLocationId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });

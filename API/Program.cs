@@ -29,6 +29,7 @@ namespace API
                 {
                     var context = services.GetRequiredService<PhotographsShopContext>();
                     await context.Database.MigrateAsync();
+                    await PhotographsShopContextSeed.SeedAsync(context, loggerFactory);
                 }
                 catch (System.Exception ex)
                 {
