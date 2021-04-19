@@ -63,3 +63,5 @@ D:\photography-website-alexandra\API\obj\Debug\netcoreapp3.1\API.csproj.CopyComp
 D:\photography-website-alexandra\API\obj\Debug\netcoreapp3.1\staticwebassets\API.StaticWebAssets.Manifest.cache
 D:\photography-website-alexandra\API\obj\Debug\netcoreapp3.1\staticwebassets\API.StaticWebAssets.xml
 D:\photography-website-alexandra\API\obj\Debug\netcoreapp3.1\API.genruntimeconfig.cache
+D:\photography-website-alexandra\API\bin\Debug\netcoreapp3.1\AutoMapper.dll
+D:\photography-website-alexandra\API\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
