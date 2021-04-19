@@ -12,9 +12,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class PhotographsController : ControllerBase
+    public class PhotographsController : BaseApiController
     {
         private readonly IGenericRepository<Photograph> _photographRepository;
         private readonly IGenericRepository<PhotographLocation> _photographLocationRepository;
