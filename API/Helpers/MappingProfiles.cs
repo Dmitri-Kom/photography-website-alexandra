@@ -10,7 +10,9 @@ namespace API.Helpers
         {
             CreateMap<Photograph, PhotographToReturnDto>()
                .ForMember(d => d.PhotographLocation,
-                          memberOptions => memberOptions.MapFrom(sourceMember => sourceMember.PhotographLocation.Name));
+                          memberOptions => memberOptions.MapFrom(sourceMember => sourceMember.PhotographLocation.Name))
+               .ForMember(d => d.Url,
+                          memberOptions => memberOptions.MapFrom<PhotographUrlResolver>());
         }
     }
 }
