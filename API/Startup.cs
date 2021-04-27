@@ -8,6 +8,7 @@ using Infrastructure.Data;
 using Core.Interfaces;
 using API.Helpers;
 using AutoMapper;
+using API.Middleware;
 
 namespace API
 {
@@ -38,10 +39,12 @@ namespace API
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();//displays the actual exception that has occured.                
-            }
+            app.UseMiddleware<ExceptionMiddleware>();
+            //if (env.IsDevelopment())
+            //{
+
+                //app.UseDeveloperExceptionPage();//displays the actual exception that has occured.                
+            //}
             //in the event that request comes into our API server, but we do 
             //not have an end point that matches that particular request, 
             //then we're going to hit this bit of middleware and it's going to 
