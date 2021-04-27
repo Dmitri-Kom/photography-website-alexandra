@@ -9,6 +9,9 @@ using Core.Interfaces;
 using API.Helpers;
 using AutoMapper;
 using API.Middleware;
+using Microsoft.AspNetCore.Mvc;
+using System.Linq;
+using API.Errors;
 
 namespace API
 {
@@ -34,6 +37,24 @@ namespace API
             services.AddControllers();
             //Default lifetime is scoped, lifetime of the request;
             services.AddDbContext<PhotographsShopContext>(dbContextOptionsBuilder => dbContextOptionsBuilder.UseSqlite(_configuration.GetConnectionString("DefaultConnection")));
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                //API attributes is using to populate any errors that are related to validation.
+                //into a model state dictionary.
+                options.InvalidModelStateResponseFactory = actionContext => 
+                {
+                    var validationErrors = actionContext.ModelState
+                                .Where(e => e.Value.Errors.Count > 0)
+                                .SelectMany(x => x.Value.Errors)
+                                .Select(x => x.ErrorMessage).ToArray();
+
+                    var errorResponse = new ApiValidationResponse
+                    {
+                        ValidationErrors = validationErrors
+                    };
+                    return new BadRequestObjectResult(errorResponse);
+                };
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
