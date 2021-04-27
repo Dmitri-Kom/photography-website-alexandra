@@ -40,8 +40,14 @@ namespace API
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage();//displays the actual exception that has occured.                
             }
+            //in the event that request comes into our API server, but we do 
+            //not have an end point that matches that particular request, 
+            //then we're going to hit this bit of middleware and it's going to 
+            //redirect to our errors controller and pass in the status code and 
+            //in our NotFoundEndpoint controller.
+            app.UseStatusCodePagesWithReExecute("/Errors/{0}");
 
             app.UseHttpsRedirection();
 
