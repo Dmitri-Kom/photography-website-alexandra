@@ -8,6 +8,7 @@ namespace Core.Specifications
     {
         public PhotographsWithLocationsSpecification(PhotographSpecParams photographSpecParams) 
                 : base(x =>
+                    (string.IsNullOrEmpty(photographSpecParams.Search) || x.Name.ToLower().Contains(photographSpecParams.Search)) &&
                     (!photographSpecParams.PhotographLocationId.HasValue || x.PhotographLocationId == photographSpecParams.PhotographLocationId)
                 )
         {
