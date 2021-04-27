@@ -6,7 +6,10 @@ namespace Core.Specifications
 {
     public class PhotographsWithLocationsSpecification : BaseSpecification<Photograph>
     {
-        public PhotographsWithLocationsSpecification(string sort)
+        public PhotographsWithLocationsSpecification(string sort, int? photographLocationId) 
+                : base(x =>
+                    (!photographLocationId.HasValue || x.PhotographLocationId == photographLocationId)
+                )
         {
             AddInclude(p => p.PhotographLocation);
             AddOrderBy(x => x.Name);

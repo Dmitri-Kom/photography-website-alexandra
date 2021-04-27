@@ -27,9 +27,9 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<PhotographToReturnDto>>> GetPhotographs(string sort)
+        public async Task<ActionResult<IReadOnlyList<PhotographToReturnDto>>> GetPhotographs(string sort, int? photographLocationId)
         {
-            var spec = new PhotographsWithLocationsSpecification(sort);
+            var spec = new PhotographsWithLocationsSpecification(sort, photographLocationId);
             var photographs = await _photographRepository.ListAsync(spec);
             return Ok(_mapper
                 .Map<IReadOnlyList<Photograph>, IReadOnlyList<PhotographToReturnDto>>(photographs));
