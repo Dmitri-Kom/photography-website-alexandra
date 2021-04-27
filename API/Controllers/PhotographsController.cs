@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using API.Dtos;
+using API.Helpers;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
@@ -27,12 +28,18 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IReadOnlyList<PhotographToReturnDto>>> GetPhotographs(string sort, int? photographLocationId)
+        public async Task<ActionResult<Pagination<PhotographToReturnDto>>> GetPhotographs([FromQuery]PhotographSpecParams photographParams)
         {
-            var spec = new PhotographsWithLocationsSpecification(sort, photographLocationId);
+            var spec = new PhotographsWithLocationsSpecification(photographParams);
+            var countSpec = new PhotographsWithFiltersForCountSpecification(photographParams);
+            var totalItems = await _photographRepository.CountAsync(countSpec);
+
             var photographs = await _photographRepository.ListAsync(spec);
-            return Ok(_mapper
-                .Map<IReadOnlyList<Photograph>, IReadOnlyList<PhotographToReturnDto>>(photographs));
+            var data = _mapper
+                .Map<IReadOnlyList<Photograph>, IReadOnlyList<PhotographToReturnDto>>(photographs);
+
+            return Ok(new Pagination<PhotographToReturnDto>(photographParams.PageIndex,
+                        photographParams.PageSize, totalItems, data));
         }
 
         [HttpGet("{id}")]

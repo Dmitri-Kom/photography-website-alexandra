@@ -6,17 +6,18 @@ namespace Core.Specifications
 {
     public class PhotographsWithLocationsSpecification : BaseSpecification<Photograph>
     {
-        public PhotographsWithLocationsSpecification(string sort, int? photographLocationId) 
+        public PhotographsWithLocationsSpecification(PhotographSpecParams photographSpecParams) 
                 : base(x =>
-                    (!photographLocationId.HasValue || x.PhotographLocationId == photographLocationId)
+                    (!photographSpecParams.PhotographLocationId.HasValue || x.PhotographLocationId == photographSpecParams.PhotographLocationId)
                 )
         {
             AddInclude(p => p.PhotographLocation);
             AddOrderBy(x => x.Name);
+            ApplyPaging(photographSpecParams.PageSize * (photographSpecParams.PageIndex - 1), photographSpecParams.PageSize); 
 
-            if (!string.IsNullOrEmpty(sort))
+            if (!string.IsNullOrEmpty(photographSpecParams.Sort))
             {
-                switch (sort)
+                switch (photographSpecParams.Sort)
                 {
                     case "priceAsc":
                         AddOrderBy(p => p.Price);

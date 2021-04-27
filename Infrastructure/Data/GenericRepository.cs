@@ -16,6 +16,11 @@ namespace Infrastructure.Data
             _photographsShopContext = photographsShopContext;
         }
 
+        public async Task<int> CountAsync(ISpecification<T> spec)
+        {
+            return await ApplySpecification(spec).CountAsync();
+        }
+
         public async Task<IReadOnlyList<T>> GetAllAsync()
         {
             return await _photographsShopContext.Set<T>().ToListAsync();
