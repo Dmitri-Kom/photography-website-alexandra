@@ -1924,11 +1924,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\photography-website-alexandra\\API\\API.csproj",
+      "projectUniqueName": "D:\\photography-website-alexandra\\api\\API.csproj",
       "projectName": "API",
-      "projectPath": "D:\\photography-website-alexandra\\API\\API.csproj",
+      "projectPath": "D:\\photography-website-alexandra\\api\\API.csproj",
       "packagesPath": "C:\\Users\\Dima\\.nuget\\packages\\",
-      "outputPath": "D:\\photography-website-alexandra\\API\\obj\\",
+      "outputPath": "D:\\photography-website-alexandra\\api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -1989,7 +1989,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.408\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.409\\RuntimeIdentifierGraph.json"
       }
     }
   }
