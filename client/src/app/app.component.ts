@@ -1,7 +1,4 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { IPagination } from './shared/models/pagination.interface';
-import { IPhotograph } from './shared/models/photograph.interface';
 
 @Component({
   selector: 'app-root',
@@ -11,15 +8,8 @@ import { IPhotograph } from './shared/models/photograph.interface';
 export class AppComponent implements OnInit {
   title = 'Photography-Alexandra';
 
-  photographs: IPhotograph[];
-
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.http.get('https://localhost:5001/api/photographs?pageSize=50').subscribe((response: IPagination) => {
-      this.photographs = response.data;
-    }, error => {
-      console.log(error);
-    })
   }
 }

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IPhotograph } from '../shared/models/photograph.interface';
+import { ShopService } from './shop.service';
 
 @Component({
   selector: 'app-shop',
@@ -6,10 +8,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent implements OnInit {
+  photographs: IPhotograph[]
 
-  constructor() { }
+  constructor(private shopService: ShopService) { }
 
   ngOnInit() {
+    this.shopService.getPhotographs().subscribe(response => {
+      this.photographs = response.data;   
+    }, error => {
+      console.log(error);
+    });
   }
 
 }

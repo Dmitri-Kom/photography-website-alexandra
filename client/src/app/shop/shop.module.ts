@@ -6,6 +6,7 @@ import { ShopComponent } from './shop.component';
   imports: [
     CommonModule
   ],
-  declarations: [ShopComponent]
+  declarations: [ShopComponent],
+  exports: [ShopComponent]
 })
 export class ShopModule { }
