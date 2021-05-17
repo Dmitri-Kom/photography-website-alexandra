@@ -1,11 +1,14 @@
-<pagination 
-    [boundaryLinks]="true" 
-    [totalItems]="totalCount" 
-    (pageChanged)="onPagerChange($event)"
-    [itemsPerPage]="pageSize"
-    previousText="&lsaquo;" 
-    nextText="&rsaquo;"
-    firstText="&laquo;" 
-    lastText="&raquo;">
-</pagination>
+<pagination-controls  
+              (pageChange)="onPagerChange($event)"
+              (pageBoundsCorrection)="onPagerChange($event)"
+              maxSize="9"
+              directionLinks="true"
+              autoHide="false"
+              responsive="true"
+              previousLabel="&lsaquo;"
+              nextLabel="&rsaquo;"
+              screenReaderPaginationLabel="Pagination"
+              screenReaderPageLabel="page"
+              screenReaderCurrentLabel="You're on page">
+</pagination-controls>
 
