@@ -16,7 +16,7 @@ export class ShopService {
     let params = new HttpParams();
 
     if (shopParams.locationId !== 0) {
-      params = params.append('locationId', shopParams.locationId.toString())
+      params = params.append('photographLocationId', shopParams.locationId.toString())
     }
 
     if (shopParams.search) {
